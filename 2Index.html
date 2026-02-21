@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlowReviews — More 5-Star Reviews. On Autopilot.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--cream: #FAF7F2;
+--dark: #1A1208;
+--gold: #C9922A;
+--gold-light: #E8B84B;
+--rust: #B84C1A;
+--muted: #7A6E62;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--dark); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+nav { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; position: fixed; width: 100%; top: 0; z-index: 100; background: rgba(250,247,242,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(201,146,42,0.15); }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--dark); }
+.logo span { color: var(--gold); }
+.nav-cta { background: var(--dark); color: #FAF7F2 !important; padding: 0.6rem 1.2rem; border-radius: 2px; text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 2rem 4rem; }
+.hero-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+.hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem; }
+h1 em { font-style: normal; color: var(--gold); }
+.hero-sub { font-size: 1.1rem; line-height: 1.7; color: var(--muted); margin-bottom: 2.5rem; }
+.hero-form { display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+.hero-form input { padding: 0.9rem 1.2rem; border: 1.5px solid rgba(201,146,42,0.3); border-radius: 2px; background: white; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--dark); outline: none; }
+.btn-primary { background: var(--gold); color: var(--dark); border: none; padding: 0.9rem 1.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500; border-radius: 2px; cursor: pointer; }
+.hero-note { font-size: 0.8rem; color: var(--muted); }
+.proof-bar { background: var(--dark); padding: 1.5rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+.proof-item { color: rgba(250,247,242,0.6); font-size: 0.85rem; }
+.proof-item strong { color: #E8B84B; }
+</style>
+<style>
+.section { padding: 4rem 2rem; max-width: 1000px; margin: 0 auto; }
+.section-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; line-height: 1.2; color: var(--dark); margin-bottom: 1.5rem; }
+.problem-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+.problem-card { background: white; border-radius: 8px; padding: 1.5rem; border: 1px solid rgba(201,146,42,0.12); border-top: 3px solid var(--gold); }
+.problem-icon { font-size: 2rem; margin-bottom: 1rem; }
+.problem-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 0.7rem; }
+.problem-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+.how-section { background: var(--dark); padding: 4rem 2rem; }
+.how-inner { max-width: 1000px; margin: 0 auto; }
+.how-section .section-tag { color: #E8B84B; }
+.how-section .section-title { color: #FAF7F2; }
+.steps { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+.step { text-align: center; }
+.step-num { width: 3.5rem; height: 3.5rem; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--dark); margin: 0 auto 1rem; }
+.step h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: #FAF7F2; margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: rgba(250,247,242,0.55); line-height: 1.6; }
+.features-grid { display: grid; grid-template-columns: 1fr; gap: 1.2rem; margin-top: 2rem; }
+.feature-card { background: white; border-radius: 8px; padding: 1.5rem; display: flex; gap: 1rem; border: 1px solid rgba(201,146,42,0.12); }
+.feature-icon { font-size: 1.6rem; flex-shrink: 0; }
+.feature-card h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dark); margin-bottom: 0.4rem; }
+.feature-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+.pricing-section { background: var(--dark); padding: 4rem 2rem; text-align: center; }
+.pricing-section .section-tag { color: #E8B84B; }
+.pricing-section .section-title { color: #FAF7F2; margin-bottom: 2rem; }
+.pricing-card { background: white; border-radius: 12px; padding: 2rem; max-width: 400px; margin: 0 auto; border-top: 4px solid var(--gold); }
+.pricing-badge { display: inline-block; background: rgba(201,146,42,0.12); color: var(--gold); font-size: 0.72rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; margin-bottom: 1.5rem; }
+.price { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 900; color: var(--dark); line-height: 1; }
+.price sup { font-size: 1.5rem; vertical-align: super; }
+.price span { font-size: 1rem; font-weight: 300; color: var(--muted); font-family: 'DM Sans', sans-serif; }
+.pricing-desc { color: var(--muted); font-size: 0.9rem; margin: 1rem 0 1.5rem; }
+.pricing-features { list-style: none; text-align: left; margin-bottom: 1.5rem; }
+.pricing-features li { padding: 0.6rem 0; font-size: 0.9rem; color: var(--dark); border-bottom: 1px solid rgba(201,146,42,0.08); display: flex; align-items: center; gap: 0.7rem; }
+.pricing-features li::before { content: '✓'; color: var(--gold); font-weight: 700; }
+.btn-full { width: 100%; padding: 1rem; font-size: 1rem; }
+.pricing-guarantee { color: rgba(250,247,242,0.5); font-size: 0.8rem; margin-top: 1.5rem; }
+.cta-section { padding: 4rem 2rem; text-align: center; max-width: 600px; margin: 0 auto; }
+.cta-section p { color: var(--muted); font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; }
+.cta-form { display: flex; flex-direction: column; gap: 0.8rem; max-width: 400px; margin: 0 auto 1rem; }
+.cta-form input { padding: 0.9rem 1.2rem; border: 1.5px solid rgba(201,146,42,0.3); border-radius: 2px; background: white; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--dark); outline: none; }
+footer { background: var(--dark); padding: 2rem; text-align: center; }
+footer p { color: rgba(250,247,242,0.35); font-size: 0.8rem; margin-top: 0.5rem; }
+.success-msg { display: none; background: rgba(201,146,42,0.1); border: 1px solid var(--gold); border-radius: 4px; padding: 0.8rem; color: var(--gold); font-size: 0.9rem; margin-top: 0.5rem; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">Glow<span>Reviews</span></div>
+  <a href="#waitlist" class="nav-cta">Get Early Access</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">For Restaurant Owners</p>
+    <h1>More <em>5-star reviews</em> without lifting a finger</h1>
+    <p class="hero-sub">GlowReviews automatically texts your customers, requests Google reviews, and responds using AI — so you can focus on running your restaurant.</p>
+    <div class="hero-form">
+      <input type="email" id="hero-email" placeholder="Your email address" />
+      <button class="btn-primary" onclick="handleSignup('hero')">Join Waitlist →</button>
+    </div>
+    <p class="hero-note">Free 14-day trial · No credit card · Cancel anytime</p>
+    <div class="success-msg" id="hero-success">🎉 You're on the list! We'll be in touch soon.</div>
+  </div>
+</section>
+
+<div class="proof-bar">
+  <div class="proof-item">⭐ <strong>Restaurants average +31 new reviews</strong> in their first month</div>
+  <div class="proof-item">🤖 <strong>AI responds to reviews</strong> in under 60 seconds</div>
+  <div class="proof-item">💰 Only <strong>$79/month</strong> — cheaper than one no-show</div>
+</div>
+
+<div class="section">
+  <p class="section-tag">The Problem</p>
+  <h2 class="section-title">You're losing customers to restaurants with more reviews</h2>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="problem-icon">😤</div>
+      <h3>You never ask for reviews</h3>
+      <p>Happy customers leave without being prompted. Unhappy ones go straight to Google. You end up with a skewed rating that doesn't reflect reality.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">⏰</div>
+      <h3>No time to respond</h3>
+      <p>Google rewards businesses that respond to reviews. But between the kitchen, staff, and operations — who has time to write thoughtful replies every day?</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📉</div>
+      <h3>Competitors outrank you</h3>
+      <p>Google shows restaurants with more reviews first. You're invisible — and losing revenue because of it.</p>
+    </div>
+  </div>
+</div>
+
+<section class="how-section">
+  <div class="how-inner">
+    <p class="section-tag">How It Works</p>
+    <h2 class="section-title">Set it up once. Let it run forever.</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Connect your restaurant</h3>
+        <p>Link your Google Business profile in under 5 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Customers get a text</h3>
+        <p>After their visit, GlowReviews sends a friendly review request automatically.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Happy guests leave reviews</h3>
+        <p>One tap takes them to your Google page. More reviews, higher rating.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>AI handles responses</h3>
+        <p>Every review gets a thoughtful AI reply. You approve with one tap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section">
+  <p class="section-tag">Features</p>
+  <h2 class="section-title">Everything you need. Nothing you don't.</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📱</div>
+      <div>
+        <h3>Automated Review Requests</h3>
+        <p>Automatically texts customers after their visit with a direct link to leave a review.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖</div>
+      <div>
+        <h3>AI-Powered Responses</h3>
+        <p>Our AI drafts a warm response to every review. You approve it or let it go live automatically.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔔</div>
+      <div>
+        <h3>Bad Review Alerts</h3>
+        <p>Get an instant alert the moment a negative review is posted so you can respond fast.</p>
+      </div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🎯</div>
+      <div>
+        <h3>Filter Unhappy Guests First</h3>
+        <p>Unhappy guests get routed to you privately — protecting your rating from avoidable 1-stars.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="pricing-section">
+  <div class="how-inner">
+    <p class="section-tag">Pricing</p>
+    <h2 class="section-title">Simple pricing. Serious results.</h2>
+    <div class="pricing-card">
+      <div class="pricing-badge">Early Access — Founding Member</div>
+      <div class="price"><sup>$</sup>79<span>/month</span></div>
+      <p class="pricing-desc">Everything included. One restaurant. Cancel anytime.</p>
+      <ul class="pricing-features">
+        <li>Unlimited automated review requests</li>
+        <li>AI-powered review responses</li>
+        <li>Bad review instant alerts</li>
+        <li>Unhappy guest filter</li>
+        <li>14-day free trial — no credit card needed</li>
+        <li>Founding member price locked forever</li>
+      </ul>
+      <button class="btn-primary btn-full" onclick="document.getElementById('waitlist').scrollIntoView({behavior:'smooth'})">Start Free Trial →</button>
+    </div>
+    <p class="pricing-guarantee">🔒 14-day money-back guarantee · Cancel anytime · No contracts</p>
+  </div>
+</section>
+
+<section class="cta-section" id="waitlist">
+  <p class="section-tag">Get Early Access</p>
+  <h2 class="section-title">Ready to put your reputation on autopilot?</h2>
+  <p>Join the waitlist today and get founding member pricing — $79/month locked in forever, plus a free 14-day trial when we launch.</p>
+  <div class="cta-form">
+    <input type="email" id="cta-email" placeholder="Your email address" />
+    <button class="btn-primary" onclick="handleSignup('cta')">Get Early Access →</button>
+  </div>
+  <div class="success-msg" id="cta-success">🎉 You're on the list! We'll reach out before launch.</div>
+  <p class="hero-note" style="margin-top:0.8rem;">No spam. No credit card. Just early access.</p>
+</section>
+
+<footer>
+  <div class="logo" style="color:#FAF7F2;">Glow<span>Reviews</span></div>
+  <p>© 2025 GlowReviews. Built for restaurant owners who are too busy to manage their reputation manually.</p>
+</footer>
+
+<script>
+function handleSignup(source) {
+  const emailEl = document.getElementById(source === 'hero' ? 'hero-email' : 'cta-email');
+  const successEl = document.getElementById(source === 'hero' ? 'hero-success' : 'cta-success');
+  const email = emailEl.value.trim();
+  if (!email || !email.includes('@')) {
+    emailEl.style.borderColor = '#B84C1A';
+    setTimeout(() => { emailEl.style.borderColor = ''; }, 2000);
+    return;
+  }
+  emailEl.style.display = 'none';
+  successEl.style.display = 'block';
+}
+document.querySelectorAll('input[type="email"]').forEach(input => {
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleSignup(input.id.includes('hero') ? 'hero' : 'cta');
+  });
+});
+</script>
+</body>
+</html>
